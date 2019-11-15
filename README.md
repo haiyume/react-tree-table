@@ -1,4 +1,4 @@
-treeTable demo
+树型表格 treeTable demo
 1. npm install
 2. npm start
 
