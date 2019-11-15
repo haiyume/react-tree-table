@@ -1,0 +1,349 @@
+<textarea id="code1">
+    import {Menu} from 'comps/drawerMenu';
+    jsx:
+    <Menu data={data} modifyTitle='name' modifyChildren='child'/>
+
+    js:
+    const data = [
+        {
+            "id": "5f792bb0-ee57-4560-855e-869e5a90df67",
+            "name": "发票后台",
+            "action": "invoice",
+            "child": [
+                {
+                    "id": "3123",
+                    "name": "微信支付",
+                    "child": [
+                        {
+                            "id": "987",
+                            "name": "发票后台",
+                            "parentId": ["3123", "5f792bb0-ee57-4560-855e-869e5a90df67"]
+                        },
+                        {
+                            "id": "654",
+                            "name": "费用明细"
+                        }
+                    ]
+                },
+                {
+                    "id": "124",
+                    "name": "快捷支付"
+                },
+                {
+                    "id": "4342",
+                    "name": "非会员快捷支付"
+                },
+                {
+                    "id": "421",
+                    "name": "钱包余额支付"
+                }
+            ]
+        },
+        {
+            "id": "1212",
+            "name": "快捷支付后台"
+        }
+    ];
+</textarea>
+
+<textarea id="code2">
+    import {Menu} from 'comps/drawerMenu';
+    jsx:
+    <Menu data={data} modifyTitle='name' modifyChildren='child' ajaxOpt={ajaxOpt}/>
+
+    js:
+    const data = [
+        {
+            "id": "5f792bb0-ee57-4560-855e-869e5a90df67",
+            "name": "发票后台",
+            "action": "invoice",
+            "child": [
+                {
+                    "id": "3123",
+                    "name": "微信支付",
+                    "child": [
+                        {
+                            "id": "987",
+                            "name": "发票后台",
+                            "parentId": ["3123", "5f792bb0-ee57-4560-855e-869e5a90df67"]
+                        },
+                        {
+                            "id": "654",
+                            "name": "费用明细"
+                        }
+                    ]
+                },
+                {
+                    "id": "124",
+                    "name": "快捷支付"
+                },
+                {
+                    "id": "4342",
+                    "name": "非会员快捷支付"
+                },
+                {
+                    "id": "421",
+                    "name": "钱包余额支付"
+                }
+            ]
+        },
+        {
+            "id": "1212",
+            "name": "快捷支付后台"
+        }
+    ];
+    const ajaxOpt = {
+        url: Urls.getMenuList
+    };
+</textarea>
+
+<textarea id="code3">
+    import {Menu} from 'comps/drawerMenu';
+    jsx:
+    <Menu data={data} modifyTitle='name' modifyChildren='child'/>
+
+    js:
+    const data = [
+        {
+            "id": "5f792bb0-ee57-4560-855e-869e5a90df67",
+            "name": "发票后台",
+            "action": "invoice",
+            "child": [
+                {
+                    "id": "3123",
+                    "name": "禁止点选",
+                    "disabled": true,
+                    "child": [
+                        {
+                            "id": "987",
+                            "name": "发票后台",
+                            "parentId": ["3123", "5f792bb0-ee57-4560-855e-869e5a90df67"]
+                        },
+                        {
+                            "id": "654",
+                            "name": "费用明细"
+                        }
+                    ]
+                },
+                {
+                    "id": "124",
+                    "name": "禁止点选",
+                    "disabled": true
+                },
+                {
+                    "id": "4342",
+                    "name": "非会员快捷支付"
+                }
+            ]
+        },
+        {
+            "id": "1212",
+            "name": "快捷支付后台"
+        }
+    ];
+</textarea>
+
+<textarea id="code4">
+    import {SubMenu, Item, Menu} from 'comps/drawerMenu';
+    jsx:
+    <Menu data={data} modifyTitle='name' modifyChildren='child'/>
+
+    js:
+    const data = [
+        {
+            "id": "5f792bb0-ee57-4560-855e-869e5a90df67",
+            "name": "发票后台",
+            "action": "invoice",
+            "child": [
+                {
+                    "id": "3123",
+                    "name": "微信支付",
+                    "child": [
+                        {
+                            "id": "987",
+                            "name": "发票后台",
+                            "parentId": ["3123", "5f792bb0-ee57-4560-855e-869e5a90df67"]
+                        },
+                        {
+                            "id": "654",
+                            "name": "费用明细"
+                        }
+                    ]
+                },
+                {
+                    "id": "124",
+                    "name": "快捷支付"
+                },
+                {
+                    "id": "4342",
+                    "name": "非会员快捷支付"
+                },
+                {
+                    "id": "421",
+                    "loading": "true",
+                    "name": "展开异步菜单"
+                }
+            ]
+        },
+        {
+            "id": "1212",
+            "name": "点击此处",
+            "onClick": function() {
+                Alert({
+                    title : '友情提示',
+                    closable : false,
+                    text : '点击了菜单',
+                    onOk : () => {
+                        console.log('点击菜单之后');
+                    }
+                });
+            }
+        }
+    ];
+</textarea>
+
+<textarea id="code5">
+    import {SubMenu, Item, Menu} from 'comps/drawerMenu';
+    jsx:
+    <Menu>
+        <SubMenu>
+            <Item id='1' title='发票后台'>
+                <SubMenu className='11'>
+                    <Item id='11' title='快捷支付'/>
+                    <Item id='12' title='微信支付'>
+                        <SubMenu className='22'>
+                            <Item id='121' title='发票后台'>
+                                <SubMenu className='33'>
+                                    <Item id='1211' title='费用明细'/>
+                                </SubMenu>
+                            </Item>
+                            <Item id='122' title='非会员快捷支付'/>
+                        </SubMenu>
+                    </Item>
+                    <Item id='13' title='钱包余额支付'/>
+                </SubMenu>
+            </Item>
+            <Item id='2' title='快捷支付后台'>
+                <SubMenu className='44'>
+                    <Item id='21' title='查看信息'/>
+                    <Item id='22' title='编辑菜单'/>
+                    <Item id='23' title='操作'/>
+                    <Item id='24' title='支付时间'/>
+                </SubMenu>
+            </Item>
+        </SubMenu>
+    </Menu>
+</textarea>
+
+<textarea id="code6">
+    import {SubMenu, Item, Menu} from 'comps/drawerMenu';
+    jsx:
+    <Menu>
+        <SubMenu>
+            <Item id='1' title='发票后台'>
+                <SubMenu className='11'>
+                    <Item id='11' title='快捷支付'/>
+                    <Item id='12' title='微信支付'>
+                        <SubMenu className='22'>
+                            <Item id='121' title='发票后台'>
+                                <SubMenu className='33'>
+                                    <Item id='1211' title='费用明细'/>
+                                </SubMenu>
+                            </Item>
+                            <Item id='122' title='非会员快捷支付'/>
+                        </SubMenu>
+                    </Item>
+                    <Item id='13' title='钱包余额支付'/>
+                </SubMenu>
+            </Item>
+            <Item id='14' title='异步加载菜单' onMouseEnter={this.getList}>
+                {this.createList()}
+            </Item>
+        </SubMenu>
+    </Menu>
+
+    js:
+    createList = () => {
+        const {children} = this.state;
+        const childList = children.map((val, key) => {
+            return <Item key={key} id={val.id} title={val.name}/>;
+        });
+
+        return (
+            <SubMenu loading={this.state.loading}>
+                {childList}
+            </SubMenu>
+        );
+    }
+</textarea>
+
+<textarea id="code7">
+    import {SubMenu, Item, Menu} from 'comps/drawerMenu';
+    jsx:
+    <Menu>
+        <SubMenu>
+            <Item id='1' title='发票后台'>
+                <SubMenu className='11'>
+                    <Item id='11' title='禁止点选' disabled={true}/>
+                    <Item id='12' title='禁止点选' disabled={true}>
+                        <SubMenu className='22'>
+                            <Item id='121' title='发票后台'>
+                                <SubMenu className='33'>
+                                    <Item id='1211' title='费用明细'/>
+                                </SubMenu>
+                            </Item>
+                            <Item id='122' title='非会员快捷支付'/>
+                        </SubMenu>
+                    </Item>
+                    <Item id='13' title='钱包余额支付'/>
+                </SubMenu>
+            </Item>
+            <Item id='2' title='快捷支付后台'>
+                <SubMenu className='44'>
+                    <Item id='21' title='查看信息'/>
+                    <Item id='22' title='编辑菜单'/>
+                    <Item id='23' title='操作'/>
+                    <Item id='24' title='支付时间'/>
+                </SubMenu>
+            </Item>
+        </SubMenu>
+    </Menu>
+</textarea>
+
+<textarea id="code8">
+    import {SubMenu, Item, Menu} from 'comps/drawerMenu';
+    jsx:
+    <Menu>
+        <SubMenu>
+            <Item id='1' title='发票后台'>
+                <SubMenu className='11'>
+                    <Item id='11' title='快捷支付'/>
+                    <Item id='12' title='微信支付'>
+                        <SubMenu className='22'>
+                            <Item id='121' title='发票后台'>
+                                <SubMenu className='33'>
+                                    <Item id='1211' title='费用明细'/>
+                                </SubMenu>
+                            </Item>
+                            <Item id='122' title='非会员快捷支付'/>
+                        </SubMenu>
+                    </Item>
+                    <Item id='13' title='钱包余额支付'/>
+                </SubMenu>
+            </Item>
+            <Item id='2' title='点击此处' onClick={this.clickMe} />
+        </SubMenu>
+    </Menu>
+
+    js:
+    clickMe = (title) => {
+        Alert({
+            title : '友情提示',
+            closable : false,
+            text : <span>标题{title}</span>,
+            onOk : () => {
+                console.log(666);
+            }
+        });
+    }
+</textarea>

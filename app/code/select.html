@@ -1,0 +1,233 @@
+<textarea id="code1">
+    import {Select} from 'comps/select';
+    jsx:
+    const dataSource = [
+        {label: '链家', value: 'lj'},
+        {label: '德祐', value: 'dy', disabled: true},
+        {label: '贝壳', value: 'bk'},
+        {label: '理房通', value: 'lft'}
+    ];
+    <Select dataSource={dataSource} placeholder="请选择" value={value} onChange={this.onChange} />
+
+    js:
+    state = {
+        value: ""
+    }
+
+    onChange = (value) => {
+        this.setState({
+            value: value
+        });
+    }
+</textarea>
+
+<textarea id="code2">
+    import {Select, Option} from 'comps/select';
+    jsx:
+    const dataSource3 = [
+        {label: '报销费', value: 'baoxiao'},
+        {label: '差旅费', value: 'chailv'},
+        {label: '其他', value: 'other'}
+    ];
+    <Select dataSource={dataSource} placeholder="请选择" value={value1} onChange={val => this.onChange(val, 'value1')} />
+    <Select placeholder="请选择资金用途" value={value2} onChange={val=> this.onChange(val, 'value2')}>
+        <Option value={"baoxiao"}>报销费</Option>
+        <Option value={"chailv"}>差旅费</Option>
+        <Option value={"other"}>其他</Option>
+    </Select>
+
+    js:
+    state = {
+        value1: "",
+        value2: ""
+    }
+
+    onChange = (val, key) => {
+        this.setState({
+            [key]: val
+        });
+    }
+</textarea>
+
+<textarea id="code3">
+    import {Select} from 'comps/select';
+    jsx:
+    const dataSource = [
+        {label: '链家', value: 'lj'},
+        {label: '德祐', value: 'dy', disabled: true},
+        {label: '贝壳', value: 'bk'},
+        {label: '理房通', value: 'lft'}
+    ];
+    <Select showSearch dataSource={dataSource} placeholder="请选择" value={value} onChange={this.onChange} />
+
+    js:
+    state = {
+        value: ""
+    }
+
+    onChange = (value) => {
+        this.setState({
+            value: value
+        });
+    }
+</textarea>
+
+<textarea id="code4">
+    import {Select} from 'comps/select';
+    jsx:
+    const dataSource = [
+        {label: 'Item 1', value: '1'},
+        {label: 'Item 2', value: '2'},
+        {label: 'Item 3', value: '3'},
+        {label: 'Item 4', value: '4'},
+        {label: 'Item 5', value: '5'},
+        {label: 'Item 6', value: '6'},
+        {label: 'Item 7', value: '7'},
+        {label: 'Item 8', value: '8'}
+    ];
+     <Select mode="multiple" dataSource={dataSource} placeholder="请选择" showSearch value={value} onChange={this.onChange} />
+
+    js:
+    state = {
+        value: []
+    }
+
+    onChange = (value) => {
+        this.setState({
+            value: value
+        });
+    }
+</textarea>
+
+<textarea id="code5">
+    import {Select} from 'comps/select';
+    jsx:
+    const dataSource = [
+        {label: 'Item 1', value: '1'},
+        {label: 'Item 2', value: '2'},
+        {label: 'Item 3', value: '3'},
+        {label: 'Item 4', value: '4'},
+        {label: 'Item 5', value: '5'},
+        {label: 'Item 6', value: '6'},
+        {label: 'Item 7', value: '7'},
+        {label: 'Item 8', value: '8'}
+    ];
+    <Select size="small" dataSource={dataSource} placeholder="请选择" value={value} onChange={this.onChange} />
+    <br />
+    <br />
+    <Select size="default" dataSource={dataSource} placeholder="请选择" value={value} onChange={this.onChange} />
+    <br />
+    <br />
+    <Select size="large" dataSource={dataSource} placeholder="请选择" value={value} onChange={this.onChange} />
+
+    js:
+    state = {
+        value: ""
+    }
+
+    onChange = (value) => {
+        this.setState({
+            value: value
+        });
+    }
+</textarea>
+
+<textarea id="code6">
+    import {Select, OptGroup, Option} from 'comps/select';
+    jsx:
+    <Select placeholder="请选择" value={value} onChange={this.onChange}>
+        <OptGroup label="LetterGroup">
+            <Option value={"a"}>Item A</Option>
+            <Option value={"b"}>Item B</Option>
+            <Option value={"c"}>Item C</Option>
+        </OptGroup>
+        <OptGroup label="NumberGroup">
+            <Option value={"1"}>Item 1</Option>
+            <Option value={"2"}>Item 2</Option>
+            <Option value={"3"}>Item 3</Option>
+        </OptGroup>
+    </Select>
+
+    js:
+    state = {
+        value: ""
+    }
+
+    onChange = (value) => {
+        this.setState({
+            value: value
+        });
+    }
+</textarea>
+
+<textarea id="code7">
+    import {Select} from 'comps/select';
+    import Util from 'com/util';
+    import Urls from 'com/urls';
+    import {debounce} from 'comps/util';
+    import Styles from './index.scss';
+
+    jsx:
+    const laodingDom = (
+        <i className={Styles.loading}>
+            <svg className={Styles.loadingSvg} viewBox="0 0 18 18">
+                <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd" strokeLinecap="round">
+                    <g className={Styles.loadingSvgStroke} transform="translate(-80.000000, -501.000000)" stroke="#5E6676">
+                        <g transform="translate(80.000000, 501.000000)">
+                            <path d="M17,9 C17,4.581722 13.418278,1 9,1" id="path">
+                                <animateTransform attributeType="XML" attributeName="transform" begin="0s" dur="1s" type="rotate" from="0 9 9" to="360 9 9" repeatCount="indefinite" />
+                            </path>
+                        </g>
+                    </g>
+                </g>
+            </svg>
+        </i>
+    );
+    <Select
+        mode="multiple"
+        dataSource={data}
+        notContent={fetching ? laodingDom : null}
+        filterOption={false}
+        placeholder="请选择"
+        showSearch
+        onSearch={this.onSearch}
+        value={value}
+        onChange={this.onChange} />
+
+    js:
+    state = {
+        value: [],
+        fetch: false
+    }
+
+    onChange = (value) => {
+        this.setState({
+            value: value
+        });
+    }
+
+    onSearch = (value) => {
+        debounce(this.getData(value));
+    }
+
+    getData = (value) => {
+        this.setState({
+            data: [],
+            fetching: true
+        });
+        setTimeout(() => {
+            Util.fetch({
+                url: Urls.select_getList,
+                data: {
+                    value
+                },
+                cb: (re = {}) => {
+                    this.setState({
+                        data: re.data,
+                        fetching: false
+                    });
+                }
+            });
+        }, 1000);
+    }
+</textarea>

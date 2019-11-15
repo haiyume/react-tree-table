@@ -1,0 +1,70 @@
+<textarea id="code1">
+    import {Radio} from 'comps/radio';
+    jsx:
+    <Radio checked={checked} onChange={this.onChange}>radio-value</Radio>
+
+    js:
+    state = {
+        checked: false
+    }
+
+    onChange = (value, checked) => {
+        this.setState({
+            checked: checked
+        });
+    }
+</textarea>
+
+<textarea id="code2">
+    import {Radio} from 'comps/radio';
+    jsx:
+    <Radio disabled checked={false}>value1</Radio>
+    <Radio disabled checked={true}>value2</Radio>
+</textarea>
+
+<textarea id="code3">
+    import {Radio, RadioGroup} from 'comps/radio';
+    jsx:
+    <RadioGroup value={value} onChange={this.onChange}>
+        <Radio key='a' value='a'>valueA</Radio>
+        <Radio key='b' value='b'>valueB</Radio>
+        <Radio key='c' value='c'>valueC</Radio>
+        <Radio disabled key='d' value='d'>valueD</Radio>
+    </RadioGroup>
+
+    js:
+    state = {
+        value: 'd'
+    }
+
+    onChange = (value) => {
+        this.setState({
+            value: value
+        });
+    }
+</textarea>
+
+<textarea id="code4">
+    import {Radio, RadioGroup} from 'comps/radio';
+    jsx:
+    render(){
+        const dataSource = [
+            {label: '链家', value: 'lj'},
+            {label: '德祐', value: 'dy', disabled: true},
+            {label: '贝壳', value: 'bk'},
+            {label: '理房通', value: 'lft'}
+        ];
+        return <RadioGroup dataSource={dataSource} value={value} onChange={this.onChange} />;
+    }
+
+    js:
+    state = {
+        value: ''
+    }
+
+    onChange = (value) => {
+        this.setState({
+            value: value
+        });
+    }
+</textarea>

@@ -1,0 +1,153 @@
+<textarea id="code1">
+    import TreeTable from 'comps/treeTable';
+    import Button from 'comps/button';
+
+    js:
+    state = {
+        treeData : null
+    }
+
+    componentDidMount(){
+        // 请求数据
+        Util.fetch({
+            url : 'treeData.json',
+            type : 'get'
+        }).then((re) => {
+            this.setState({
+                treeData : re.data
+            });
+        }).catch(re => {
+            Message.warn(re.info);
+        });
+    }
+
+    // 打开所有节点
+    expandAll = () => {
+        this.refs.table.setExpandAll(true);
+    }
+
+    // 关闭所有节点
+    closeAll = () => {
+        this.refs.table.setExpandAll(false);
+    }
+
+    // 打开id为111和41的两个节点
+    expandList = () => {
+        this.refs.table.setExpandList(['111', '41'], true);
+    }
+
+    // 关闭id为111和41的两个节点
+    closeList = () => {
+        this.refs.table.setExpandList(['111', '41'], false);
+    }
+
+    // 表格头部定义
+    let headerList = [
+        {
+            key : 'title',
+            value : "名称",
+            onClick : (data, eq, deep) => {
+                alert(data.title + '是' + data.color + '的');
+            }
+        },
+        {
+            key : 'id',
+            value : "标识",
+            width : 100,
+            textAlign : 'left'
+        },
+        {
+            key : 'color',
+            value : "颜色",
+            width : 100,
+            textAlign : 'center'
+        }
+    ];
+
+
+    jsx:
+    <div className="demonstration-dome">
+        <div>
+            <Button onClick={this.expandAll}>展开所有</Button>
+            <Button onClick={this.closeAll}>关闭所有</Button>
+            <Button onClick={this.expandList}>展开太阳系和虫洞</Button>
+            <Button onClick={this.closeList}>隐藏太阳系和虫洞</Button>
+        </div>
+
+        <TreeTable
+            ref="table"
+            headerList={headerList}
+            orderNumber={true}
+            dataSource={this.state.treeData} />
+    </div>
+</textarea>
+
+<textarea id="code2">
+    import TreeTable from 'comps/treeTable';
+    import Button from 'comps/button';
+
+    js:
+    state = {
+        treeData : null
+    }
+
+    componentDidMount(){
+        // 请求数据
+        Util.fetch({
+            url : 'treeData.json',
+            type : 'get'
+        }).then((re) => {
+            this.setState({
+                treeData : re.data
+            });
+        }).catch(re => {
+            Message.warn(re.info);
+        });
+    }
+
+
+    // 表格头部定义
+    let headerList = [
+        {
+            key : 'id',
+            value : "id",
+            width : 100,
+            textAlign : 'center'
+        },
+        {
+            key : 'id',
+            value : "层级",
+            width : 100,
+            textAlign : 'center',
+            format : (value, data, eq, headerObj, deep) => {
+                return deep;
+            }
+        },
+        {
+            key : 'title',
+            value : "名称"
+        },
+        {
+            key : 'id',
+            value : "操作",
+            width : 150,
+            textAlign : 'center',
+            format : (id, data) => {
+                return (
+                    <React.Fragment>
+                        <Button size="small" onClick={() => {alert('no zuo no die');}}>前往</Button>
+                        <Button size="small" onClick={() => {alert(data.title);}}>查看</Button>
+                    </React.Fragment>
+                );
+            }
+        }
+    ];
+
+
+    jsx:
+    <TreeTable
+        headerList={headerList}
+        treeIndex={2}
+        expandAll={true}
+        dataSource={this.state.treeData} />
+</textarea>

@@ -1,0 +1,162 @@
+<textarea id="code1">
+    import Dropdown from 'comps/dropdown';
+    import Button from 'comps/button';
+    jsx:
+    render(){
+        const dataSource1 = [{
+            label: '1st item',
+            value: '1',
+            title: '1st item'
+        }, {
+            label: '2nd item',
+            value: '2',
+            title: '2nd item'
+        }];
+        return (
+            <Dropdown dataSource={dataSource1} onClick={onClick}>
+                <Button type="link">Hover me !</Button>
+            </Dropdown>
+        );
+    }
+    js:
+    onClick = (e, data) => {
+        console.log("onClick---", data);
+    }
+</textarea>
+
+<textarea id="code2">
+    import Dropdown from 'comps/dropdown';
+    import Button from 'comps/button';
+    jsx:
+    render(){
+        const dataSource1 = [{
+            label: '1st item',
+            value: '1',
+            title: '1st item'
+        }, {
+            label: '2nd item',
+            value: '2',
+            title: '2nd item'
+        }];
+        return (
+            <div>
+                <Dropdown dataSource={dataSource1} onClick={onClick} placement="left">
+                    <Button>Left</Button>
+                </Dropdown>
+                <Dropdown dataSource={dataSource1} onClick={onClick} placement="center">
+                    <Button>Center</Button>
+                </Dropdown>
+                <Dropdown dataSource={dataSource1} onClick={onClick} placement="right">
+                    <Button>Right</Button>
+                </Dropdown>
+            </div>
+        );
+    }
+    js:
+    onClick = (e, data) => {
+        console.log("onClick---", data);
+    }
+</textarea>
+
+<textarea id="code3">
+    import Dropdown from 'comps/dropdown';
+    import Button from 'comps/button';
+    jsx:
+    render(){
+        const dataSource1 = [{
+            label: '1st item',
+            value: '1',
+            title: '1st item'
+        }, {
+            label: '2nd item',
+            value: '2',
+            title: '2nd item'
+        }];
+        return (
+            <div>
+                <Dropdown dataSource={dataSource1} onClick={onClick} trigger="click">
+                    <Button type="link" marginRight={20}>Click me !</Button>
+                </Dropdown>
+                <Dropdown dataSource={dataSource1} onClick={onClick} trigger="hover">
+                    <Button type="link">Hover me !</Button>
+                </Dropdown>
+            </div>
+        );
+    }
+    js:
+    onClick = (e, data) => {
+        console.log("onClick---", data);
+    }
+</textarea>
+
+<textarea id="code4">
+    import Dropdown from 'comps/dropdown';
+    import Button from 'comps/button';
+    jsx:
+    render(){
+        const dataSource2 = [{
+            label: '1st item',
+            value: '1',
+            title: '1st item'
+        }, {
+            label: '2nd item',
+            value: '2',
+            title: '2nd item',
+            disabled: true
+        }];
+        return (
+            <div>
+                <Dropdown dataSource={dataSource2} onClick={onClick} disabled>
+                    <Button>hover me</Button>
+                </Dropdown>
+                <Dropdown dataSource={dataSource2} onClick={onClick}>
+                    <Button>hover me</Button>
+                </Dropdown>
+            </div>
+        );
+    }
+
+    js:
+    onClick = (e, data) => {
+        console.log("onClick---", data);
+    }
+</textarea>
+
+<textarea id="code5">
+    import Dropdown from 'comps/dropdown';
+    import Button from 'comps/button';
+    jsx:
+    render(){
+        const dataSource1 = [{
+            label: '1st item',
+            value: '1',
+            title: '1st item'
+        }, {
+            label: '2nd item',
+            value: '2',
+            title: '2nd item'
+        }];
+        return (
+            <Dropdown dataSource={dataSource1} onClick={onClick} hideAfterClick={false}
+                onVisibleChange={onVisibleChange}>
+                <Button>hover me</Button>
+            </Dropdown>
+        );
+    }
+
+    js:
+    state = {
+        visible: undefined
+    }
+
+    onClick = (e, data) => {
+        console.log("onClick---", data);
+    }
+
+    onVisibleChange = (visible) => {
+        if(this.state.visible !== visible){
+            this.setState({visible});
+            console.log("onVisibleChange---", visible);
+        }
+    }
+</textarea>

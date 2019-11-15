@@ -1,0 +1,153 @@
+<textarea id="code1">
+    import Drawer from 'comps/drawer';
+    import Button from 'comps/button';
+
+    jsx:
+    <Button onClick={() => {this.setState({visible: true});}}>open</Button>
+    <Drawer
+        onClose={() => {this.setState({visible: false});}}
+        visible={this.state.visible}
+    >
+        <div>
+            <h3>古朗月行</h3>
+            <p>[唐] 李白</p>
+            <ul>
+                <li>小时不识月，呼作白玉盘。</li>
+                <li>又疑瑶台镜，飞在青云端。</li>
+                <li>仙人垂两足，桂树作团团。</li>
+                <li>白兔捣药成，问言与谁餐。</li>
+                <li>蟾蜍蚀圆影，大明夜已残。</li>
+                <li>羿昔落九乌，天人清且安。</li>
+                <li>阴精此沦惑，去去不足观。</li>
+                <li>忧来其如何，凄怆摧心肝。</li>
+            </ul>
+        </div>
+    </Drawer>
+</textarea>
+
+<textarea id="code2">
+    import Drawer from 'comps/drawer';
+    import Button from 'comps/button';
+    import {RadioGroup} from 'comps/radio';
+
+    jsx:
+    <RadioGroup
+        dataSource={dataSource}
+        value={this.state.type}
+        onChange={(type) => {this.setState({type});}}
+    />
+    <Button onClick={() => {this.setState({visible: true});}}>open</Button>
+    <Drawer
+        title="Basic Drawer"
+        width={500}
+        closable={true}
+        zIndex={200}
+        placement={type}
+        keyboard={true}
+        onClose={() => {this.setState({visible: false});}}
+        visible={this.state.visible}
+    >
+        <div>
+            <h3>行路难·有耳莫洗颍川水</h3>
+            <p>[唐] 李白</p>
+            <ul>
+                <li>有耳莫洗颍川水，有口莫食首阳蕨。</li>
+                <li>含光混世贵无名，何用孤高比云月？</li>
+                <li>吾观自古贤达人，功成不退皆殒身。</li>
+                <li>子胥既弃吴江上，屈原终投湘水滨。</li>
+                <li>陆机雄才岂自保？李斯税驾苦不早。</li>
+                <li>华亭鹤唳讵可闻？上蔡苍鹰何足道？</li>
+                <li>君不见吴中张翰称达生，秋风忽忆江东行。</li>
+                <li>且乐生前一杯酒，何须身后千载名？</li>
+            </ul>
+        </div>
+    </Drawer>
+
+    js:
+    const dataSource = [
+        {label: 'bottom', value: 'bottom'},
+        {label: 'top', value: 'top'},
+        {label: 'left', value: 'left'},
+        {label: 'right', value: 'right'}
+    ];
+</textarea>
+
+<textarea id="code3">
+    import Drawer from 'comps/drawer';
+    import Button from 'comps/button';
+
+    jsx:
+    <div>
+        <Button onClick={() => {this.setState({visible: true});}}>open</Button>
+        <Drawer
+            title="Basic Drawer"
+            width={200}
+            showInContainer={true}
+            keyboard={true}
+            onClose={() => {this.setState({visible: false});}}
+            visible={this.state.visible3}
+        >
+            <div>some contents...</div>
+        </Drawer>
+    </div>
+</textarea>
+
+<textarea id="code4">
+    import Drawer from 'comps/drawer';
+    import Button from 'comps/button';
+
+    jsx:
+    <Button onClick={() => {this.setState({visible: true});}}>open</Button>
+    <Drawer
+        title="User Profile"
+        width={500}
+        placement="right"
+        closable={true}
+        onClose={() => {this.setState({visible: false});}}
+        visible={this.state.visible}
+    >
+        <div>
+            <h3>Personal</h3>
+            <ul>
+                <li>Full Name:<span>Lily</span></li>
+                <li>City:<span>BeiJing</span></li>
+                <li>Country:<span>China🇨🇳</span></li>
+                <li>Message:<span>Make things as simple as possible but no simpler.</span></li>
+            </ul>
+            <h3>Company
+                <a onClick={() => {this.setState({visibleChild: true});}}>modify</a>
+            </h3>
+            <ul>
+                <li>Position:<span>Programmer</span></li>
+                <li>Responsibilities:<span>Coding</span></li>
+                <li>Skills:<span>Operating systems, computer networks.</span></li>
+            </ul>
+        </div>
+    </Drawer>
+    <Drawer
+        title="Modify"
+        width={485}
+        placement="right"
+        closable={true}
+        onClose={() => {this.setState({visibleChild: false});}}
+        visible={this.state.visibleChild}
+    >
+        <div>
+            <h3>Company</h3>
+            <ul>
+                <li>
+                    <Input placeholder="Please enter position" />
+                </li>
+                <li>
+                    <Input placeholder="Please enter responsibilities" />
+                </li>
+                <li>
+                    <Input placeholder="Please enter skills" />
+                </li>
+                <li>
+                    <Button onClick={() => {this.setState({visibleChild: false});}}>submit</Button>
+                </li>
+            </ul>
+        </div>
+    </Drawer>
+</textarea>

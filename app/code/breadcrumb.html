@@ -1,0 +1,101 @@
+<textarea id="code1">
+    import {Breadcrumb} from 'comps/breadcrumb/index';
+
+    jsx:
+    <Breadcrumb data={breadcrumbConfig}/>
+
+    js:
+    const breadcrumbConfig = [
+        {
+            name: '加载中',
+            url: '/#/loading'
+        },
+        {
+            name: '验证码',
+            url: '/#/verifyCode'
+        },
+        {
+            name: '三级导航'
+        }
+    ];
+</textarea>
+
+<textarea id="code2">
+    import {Breadcrumb} from 'comps/breadcrumb/index';
+
+    jsx:
+    <Breadcrumb data={Config.breadcrumbConfig} separator='&'/>
+
+    js:
+    const breadcrumbConfig = [
+        {
+            name: '加载中',
+            url: '/#/loading'
+        },
+        {
+            name: '验证码',
+            url: '/#/verifyCode'
+        },
+        {
+            name: '三级导航'
+        }
+    ];
+</textarea>
+
+<textarea id="code3">
+    import {Breadcrumb} from 'comps/breadcrumb/index';
+
+    jsx:
+    const separator = (<span>||</span>);
+
+    <Breadcrumb data={Config.breadcrumbConfig} separator={separator}/>
+
+    js:
+    const breadcrumbConfig = [
+        {
+            name: '加载中',
+            url: '/#/loading'
+        },
+        {
+            name: '验证码',
+            url: '/#/verifyCode'
+        },
+        {
+            name: '三级导航'
+        }
+    ];
+</textarea>
+
+<textarea id="code4">
+    import {Breadcrumb, Item} from 'comps/breadcrumb/index';
+
+    jsx:
+    <Breadcrumb>
+        <Item href='/#/loading'>加载中</Item>
+        <Item href='/#/verifyCode'>验证码</Item>
+        <Item>三级菜单</Item>
+    </Breadcrumb>
+</textarea>
+
+<textarea id="code5">
+    import {Breadcrumb, Item} from 'comps/breadcrumb/index';
+
+    jsx:
+    <Breadcrumb separator='%'>
+        <Item href='/#/loading'>加载中</Item>
+        <Item href='/#/verifyCode'>验证码</Item>
+        <Item>三级菜单</Item>
+    </Breadcrumb>
+</textarea>
+
+<textarea id="code6">
+    import {Breadcrumb, Item} from 'comps/breadcrumb/index';
+
+    jsx:
+    const separator = (<span>||</span>);
+    <Breadcrumb separator={separator}>
+        <Item href='/#/loading'>加载中</Item>
+        <Item href='/#/verifyCode'>验证码</Item>
+        <Item>三级菜单</Item>
+    </Breadcrumb>
+</textarea>

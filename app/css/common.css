@@ -1,0 +1,56 @@
+/*初始化*/
+body, div, dl, dt, dd, ul, ol, li, p, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, button, input, textarea, img, blockquote, th, td,tr { margin:0; padding:0; }
+body, button, input, select, textarea { font:12px/1.5 arial ;font-family:-apple-system,BlinkMacSystemFont,"SF Pro SC","SF Pro Text",Helvetica,"PingFang SC",'arial','microsoft yahei ui',"Microsoft YaHei",SimSun; color:#1f2324;}
+table { border-collapse:collapse; border-spacing:0; }
+h1, h2, h3, h4, h5, h6 { font-size:100%; font-weight:bold; }
+ul, ol { list-style:none; }
+select, input, img { vertical-align:middle; }
+a:link, a:visited { text-decoration:none; }
+a:hover{ color:#F00; text-decoration:none;}
+fieldset, img { border:0 ;   }
+.clearfix:after { content: "."; height: 0; clear: both; visibility:hidden; }
+.clearfix { display: inline-block; } /* Hides from IE-mac\*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; } /* End hide from IE-mac*/
+.layout:after{content:'\20';display:block;height:0;clear:both;}
+.layout{*zoom:1;}
+.h10{
+    height: 10px;
+    overflow: hidden;
+}
+.index{
+    padding: 10px 20px;
+}
+.index h1{
+    text-align: center;
+    font-size: 18px;
+}
+.bt{display: inline-block;_display:inline;_zoom:1;line-height: 26px;padding:0 20px;border-radius:2px;cursor:pointer;margin-right:8px;color:#FFF;font-size:12px;background-color: #2684ff;border: 1px solid #2684ff; vertical-align: middle;text-align: center;}
+.bt:hover{color: #FFF; background-color: #549eff;border-color: #549eff;}
+.demonstration-dome{
+    margin: 10px 0;
+}
+
+.demonstration-box{
+    margin-bottom: 50px;
+}
+.demonstration h2{
+    font-size: 16px;
+}
+.api-table h2{
+    font-size: 16px;
+    margin: 32px 0 16px;
+}
+.api-table table{
+    width: 100%;
+}
+.api-table table td,th{
+    font-size: 14px;
+    text-align: left;
+    padding:10px 0 10px 32px;
+    line-height: 20px;
+    border-bottom: #F7F7F7 1px solid;
+}
+.api-table table th{
+    background-color: #F7F7F7;
+}

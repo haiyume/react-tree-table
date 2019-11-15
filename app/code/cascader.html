@@ -1,0 +1,208 @@
+<textarea id="code1">
+    import Cascader from 'comps/cascader';
+
+    jsx:
+    <Cascader
+        size="small"
+        dataSource={dataSource}
+        onChange={this.onChange}
+        getNextData={this.getNextData}
+    />
+    <Cascader dataSource={dataSource}/>
+    <Cascader size="large" dataSource={dataSource}/>
+
+    js:
+    state = {
+        dataSource: {
+            navList: ['省', '市', '区'],
+            dataList: {
+                '省': [
+                    {id: '101', value: '广东'},
+                    {id: '102', value: '天津'},
+                    {id: '103', value: '上海'},
+                    {id: '104', value: '北京'},
+                    ...
+                ],
+                '市': {
+                    '101': [
+                        {id: '201', value: '广州市'},
+                        {id: '202', value: '韶关市'},
+                        {id: '203', value: '珠海市'},
+                        ...
+                    ],
+                    '102': [
+                        {id: '201', value: '天津市'}
+                    ],
+                    '103': [
+                        {id: '201', value: '上海市'}
+                    ],
+                    '104': [
+                        {id: '201', value: '北京市'}
+                    ],
+                    ...
+                }
+                '区': {
+                    '201': [
+                        {id: '301', value: '银州区'},
+                        {id: '302', value: '海淀区'},
+                        {id: '303', value: '朝阳区'},
+                        ...
+                    ],
+                    ...
+                }
+            }
+        }
+    }
+
+    /**
+     * 监听数据改变
+     * @param {string、number} id1: 第一级数据id
+     * @param {string} value1: 第一级数据值
+     * @param {string、number} id2: 第二级数据id
+     * @param {string} value2: 第二级数据值
+     * @param {string、number} id3: 第三级数据id
+     * @param {string} value3: 第三级数据值
+     */
+    onChange = (id1, value1, id2, value2, id3, value3) => {
+        const {data} = this.state;
+        data.provId = id1;
+        data.provValue = value1;
+        data.cityId = id2;
+        data.cityValue = value2;
+        data.areaId = id3;
+        data.areaValue = value3;
+        this.setState({data});
+    }
+
+    /**
+     * 获取下一级数据
+     * @param {function} cb: 获取到数据后需要用该方法回调给组件
+     * @param {number} index: 当前第几级的索引值，从0开始
+     * @param {string、number} id1: 第一级数据id
+     * @param {string} value1: 第一级数据值
+     * @param {string、number} id2: 第二级数据id
+     * @param {string} value2: 第二级数据值
+     * @param {string、number} id3: 第三级数据id
+     * @param {string} value3: 第三级数据值
+     */
+    getNextData = (cb, index, id1, value1, id2, value2, id3, value3) => {
+        // 模拟异步获取数据
+        setTimeout(() => {
+            let list;
+            if(index === 1) { // 获取第二级数据
+                list = DataSource.getCity(id1);
+            } else if(index === 2) { // 获取第三级数据
+                list = DataSource.getArea(id2);
+            }
+            // 获取到的数据列表回调给组件内部
+            cb(list);
+        }, 1000);
+    }
+</textarea>
+
+<textarea id="code2">
+    import Cascader from 'comps/cascader';
+
+    jsx:
+    <Cascader
+        value={this.state.val}
+        height={100}
+        popupPlacement="top"
+        dataSource={vocation}
+        onChange={this.onChange}
+    />
+
+    js:
+    const vocation = {
+        navList: ['行业类型', '职业'],
+        dataList: {
+            '行业类型': [
+                {id: 2, value: "通用岗位"},
+                {id: 3, value: "IT互联网"},
+                {id: 4, value: "服务行业"},
+                ...
+            ],
+            '职业': {
+                2: [
+                    {value: "技工", id: 1},
+                    {value: "批发零售", id: 2},
+                    {value: "租赁与商务服务", id: 3},
+                    {value: "科学研究", id: 4}
+                ],
+                3: [
+                    {value: "研发工程师", id: 5},
+                    {value: "测试工程师", id: 6},
+                    {value: "设计师", id: 7},
+                    ...
+                ],
+                4: [
+                    {value: "导游", id: 12},
+                    {value: "保安", id: 13},
+                    {value: "快递员（含外卖）", id: 14},
+                    ...
+                ],
+                ...
+            }
+        }
+    }
+
+    onChange = (id1, value1, id2, value2) => {
+        this.setState({
+            val: `${value1}${value2 ? ' - ' + value2 : ''}`;
+        });
+    }
+</textarea>
+
+<textarea id="code3">
+    import Cascader from 'comps/cascader';
+
+    <Cascader value="服务行业 - 乘务员" disabled={true} />
+</textarea>
+
+<textarea id="code4">
+    import Cascader from 'comps/cascader';
+
+    jsx:
+    <Cascader
+        ref={ref => this.errRef = ref}
+        dataSource={vocation}
+        placeholder="请选择行业"
+    />
+
+    js:
+    const vocation = {
+        navList: ['行业类型', '职业'],
+        dataList: {
+            '行业类型': [
+                {id: 2, value: "通用岗位"},
+                {id: 3, value: "IT互联网"},
+                {id: 4, value: "服务行业"},
+                ...
+            ],
+            '职业': {
+                2: [
+                    {value: "技工", id: 1},
+                    {value: "批发零售", id: 2},
+                    {value: "租赁与商务服务", id: 3},
+                    {value: "科学研究", id: 4}
+                ],
+                3: [
+                    {value: "研发工程师", id: 5},
+                    {value: "测试工程师", id: 6},
+                    {value: "设计师", id: 7},
+                    ...
+                ],
+                4: [
+                    {value: "导游", id: 12},
+                    {value: "保安", id: 13},
+                    {value: "快递员（含外卖）", id: 14},
+                    ...
+                ],
+                ...
+            }
+        }
+    }
+
+    // 设置错误状态
+    this.errRef.setErr(true);
+</textarea>

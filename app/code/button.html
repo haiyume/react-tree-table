@@ -1,0 +1,42 @@
+<textarea id="code1">
+    import {Button, ButtonGroup} from 'comps/button';
+    jsx:
+    <Button loading={this.state.loading} onClick={this.sclick}>确定</Button>
+    <Button loading="加载中...">确定</Button>
+    <Button disabled={true}>不可用</Button>
+
+    js:
+    sclick = () => {
+        this.setState({
+            loading : "加载中，请稍后..."
+        });
+        window.setTimeout(() => {
+            this.setState({
+                loading : false
+            });
+        }, 3000);
+    }
+</textarea>
+
+<textarea id="code2">
+    import {Button, ButtonGroup} from 'comps/button';
+    <Button size="small">小按钮</Button>
+    <Button>默认大小</Button>
+    <Button size="large">大按钮</Button>
+</textarea>
+
+<textarea id="code3">
+    import {Button, ButtonGroup} from 'comps/button';
+    <Button fillet={true}>圆角按钮</Button>
+    <Button color="white">白色按钮</Button>
+    <Button type="ghost" marginRight={20}>幽灵按钮</Button>
+    <Button type="link" marginRight={20}>文字按钮</Button>
+</textarea>
+
+<textarea id="code4">
+    import {Button, ButtonGroup} from 'comps/button';
+    <ButtonGroup>
+        <Button icon="img/l-icon.png">上一页</Button>
+        <Button icon="img/r-icon.png" iconPos="right">下一页</Button>
+    </ButtonGroup>
+</textarea>

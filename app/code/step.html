@@ -1,0 +1,116 @@
+<textarea id="code1">
+    import {Step, StepItem} from 'comps/step';
+
+    jsx:
+    <Step dataSource={data}/>
+    <Step current={2} animation={true}>
+        <StepItem title="step 1" description="This is a description." />
+        <StepItem title="step 2" description="This is a description." />
+        <StepItem title="step 3" description="This is a description." />
+        <StepItem title="step 4" description="This is a description." />
+    </Step>
+
+    js:
+    const data = [
+        {
+            title: 'step 1',
+            description: 'This is a description.'
+        },
+        {
+            title: 'step 2',
+            description: 'This is a description.'
+        },
+        {
+            title: 'step 3',
+            description: 'This is a description.'
+        }
+    ];
+</textarea>
+
+<textarea id="code2">
+    import {Step, StepItem} from 'comps/step';
+
+    jsx:
+    <Step size="small" dataSource={data}/>
+    <Step dataSource={data}/>
+    <Step size="large" dataSource={data}/>
+
+    js:
+    const data = [
+        {
+            title: 'step 1',
+            description: 'This is a description.'
+        },
+        {
+            title: 'step 2',
+            description: 'This is a description.'
+        },
+        {
+            title: 'step 3',
+            description: 'This is a description.'
+        }
+    ];
+</textarea>
+
+<textarea id="code3">
+    import {Step, StepItem} from 'comps/step';
+
+    <Step shape="dot" current={2}>
+        <StepItem title="step 1" description="This is a description." />
+        <StepItem title="step 2" description="This is a description." />
+        <StepItem title="step 3" description="This is a description." />
+    </Step>
+</textarea>
+
+<textarea id="code4">
+    import {Step, StepItem} from 'comps/step';
+
+    <Step current={2} labelPlacement="horizontal">
+        <StepItem title="step 1" description="This is a description." />
+        <StepItem title="step 2" description="This is a description." />
+        <StepItem title="step 3" description="This is a description." />
+    </Step>
+    <Step shape="dot" labelPlacement="horizontal" current={3}>
+        <StepItem title="step 1" description="This is a description." />
+        <StepItem title="step 2" description="This is a description." />
+        <StepItem title="step 3" description="This is a description." />
+        <StepItem title="step 4" description="This is a description." />
+    </Step>
+</textarea>
+
+<textarea id="code5">
+    import {Step, StepItem} from 'comps/step';
+
+    <Step size="small" current={2} direction="vertical">
+        <StepItem title="step 1" description="This is a description." />
+        <StepItem title="step 2" description="This is a description." />
+        <StepItem title="step 3" description="This is a description." />
+    </Step>
+    <Step current={2} direction="vertical">
+        <StepItem title="step 1" description="This is a description." />
+        <StepItem title="step 2" description="This is a description." />
+        <StepItem title="step 3" description="This is a description." />
+    </Step>
+    <Step size="large" current={2} direction="vertical">
+        <StepItem title="step 1" description="This is a description." />
+        <StepItem title="step 2" description="This is a description." />
+        <StepItem title="step 3" description="This is a description." />
+    </Step>
+    <Step shape="dot" current={2} direction="vertical">
+        <StepItem title="step 1" description="This is a description." />
+        <StepItem title="step 2" description="This is a description." />
+        <StepItem title="step 3" description="This is a description." />
+    </Step>
+</textarea>
+
+<textarea id="code6">
+    import {Step, StepItem} from 'comps/step';
+
+    <Step current={2} labelPlacement="horizontal">
+        <StepItem title="step 1" description={longDes} />
+        <StepItem title={longTitle} description={selfDes} />
+        <StepItem title="step 3" description="This is a description." />
+        <StepItem title="step 4" description="This is a description." icon={icon} />
+        <StepItem title="step 5" description="This is a description." status="finish" />
+    </Step>
+</textarea>

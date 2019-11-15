@@ -1,0 +1,89 @@
+<textarea id="code1">
+    import Carousel from 'comps/carousel';
+
+    jsx:
+    <Carousel>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+    </Carousel>
+</textarea>
+
+<textarea id="code2">
+    import Carousel from 'comps/carousel';
+
+    jsx:
+    <RadioGroup
+        dataSource={dataSource}
+        value={type}
+        onChange={this.typeChange}
+    />
+    <Carousel>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+    </Carousel>
+
+    js:
+    const {type} = this.state;
+    const dataSource = [
+        {label: 'bottom', value: 'bottom'},
+        {label: 'bottomLeft', value: 'bottomLeft'},
+        {label: 'bottomRight', value: 'bottomRight'},
+        {label: 'top', value: 'top'},
+        {label: 'topLeft', value: 'topLeft'},
+        {label: 'topRight', value: 'topRight'},
+        {label: 'left', value: 'left'},
+        {label: 'leftTop', value: 'leftTop'},
+        {label: 'leftBottom', value: 'leftBottom'},
+        {label: 'right', value: 'right'},
+        {label: 'rightTop', value: 'rightTop'},
+        {label: 'rightBottom', value: 'rightBottom'}
+    ];
+
+    typeChange = (type) => {
+        this.setState(() => {
+            return {
+                type
+            };
+        });
+    }
+</textarea>
+
+<textarea id="code3">
+    import Carousel from 'comps/carousel';
+
+    jsx:
+    <Carousel autoplay={true}>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+    </Carousel>
+</textarea>
+
+<textarea id="code4">
+    import Carousel from 'comps/carousel';
+
+    jsx:
+    <Carousel effect="scrolly" autoplay={true} dotPosition="right">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+    </Carousel>
+</textarea>
+
+<textarea id="code5">
+    import Carousel from 'comps/carousel';
+
+    jsx:
+    <Carousel effect="fade">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+    </Carousel>
+</textarea>
