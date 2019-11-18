@@ -8,7 +8,7 @@ run at : http://localhost:8080/
 demo1:
 ![](http://zitk.net/img/111.png)
 ```javascript
-let headerList = [
+const headerList = [
     {
         key : 'title',
         value : "名称",
@@ -29,14 +29,14 @@ let headerList = [
         textAlign : 'center'
     }
 ];
-<TreeTable headerList={headerList} dataSource={dataSource} />
+<TreeTable headerList={headerList} dataSource={this.state.dataSource} />
 ```
 
 
 demo2:
 ![](http://zitk.net/img/222.png)
 ```javascript
-let headerList2 = [
+const headerList2 = [
     {
         key : 'id',
         value : "id",
@@ -75,5 +75,5 @@ let headerList2 = [
     headerList={headerList2}
     treeIndex={2}
     expandAll={true}
-    dataSource={this.state.treeData} />
+    dataSource={this.state.dataSource} />
 ```
