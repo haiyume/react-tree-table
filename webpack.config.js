@@ -27,8 +27,7 @@ module.exports = {
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new CopyWebpackPlugin([
-            {from: './json/', to : './json/'},
-            {from: './js/vendor/', to : './js/vendor/'}
+            {from: './json/', to : './json/'}
         ]),
         // new webpack.optimize.UglifyJsPlugin({
         //     compress: {

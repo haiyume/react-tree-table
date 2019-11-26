@@ -5,7 +5,7 @@
  * @date 2019/11/5
  */
 import React, {Component} from 'react';
-import TreeTable from '../../treeTable';
+import TreeTable from '../treeTable';
 import Doc from './doc';
 import fetch from 'isomorphic-fetch';
 
