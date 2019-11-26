@@ -1,4 +1,4 @@
-# 超轻量级树型表格 treeTable （约300行代码）
+# 超级轻量级树型表格 treeTable
 ```javascript
 npm install
 npm start
